@@ -1,15 +1,20 @@
 public class Character {
 
     private String name;
-    private String hairColour;
-    private String eyeColour;
+    private HairColour hairColour;
+    private EyeColour eyeColour;
     private boolean wearsGlasses;
     private boolean hasHat;
-    private boolean gender;
+    private Gender gender;
     private boolean facialHair;
 
-    public Character(String name, String hairColour, String eyeColour, boolean wearsGlasses,boolean hasHat,
-                     boolean gender, boolean facialHair) {
+    public Character(String name,
+                     HairColour hairColour,
+                     EyeColour eyeColour,
+                     boolean wearsGlasses,
+                     boolean hasHat,
+                     Gender gender,
+                     boolean facialHair) {
 
         this.name = name;
         this.hairColour = hairColour;
@@ -19,13 +24,14 @@ public class Character {
         this.gender = gender;
         this.facialHair = facialHair;
     }
+
     public String getName() {
         return name;
     }
-    public String getHairColour() {
+    public HairColour getHairColour() {
         return hairColour;
     }
-    public String getEyeColour() {
+    public EyeColour getEyeColour() {
         return eyeColour;
     }
     public boolean wearsGlasses() {
@@ -34,7 +40,7 @@ public class Character {
     public boolean hasHat() {
         return hasHat;
     }
-    public boolean gender() {
+    public Gender getGender() {
         return gender;
     }
     public boolean facialHair() {
