@@ -1,6 +1,6 @@
 public class Character {
 
-    private String name;
+    String name;
     private HairColour hairColour;
     private EyeColour eyeColour;
     private boolean wearsGlasses;
@@ -45,6 +45,17 @@ public class Character {
     }
     public boolean facialHair() {
         return facialHair;
+    }
+
+    @Override
+    public String toString(){
+        return name + "," +
+                hairColour + "," +
+                eyeColour + "," +
+                wearsGlasses + "," +
+                hasHat + "," +
+                gender + "," +
+                facialHair;
     }
 
 }
