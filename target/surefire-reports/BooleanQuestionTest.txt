@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: CharacterTest
+Test set: BooleanQuestionTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in CharacterTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in BooleanQuestionTest

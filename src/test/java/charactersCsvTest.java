@@ -1,6 +1,12 @@
+import model.Character;
+import model.CharacterLoader;
+import model.EyeColour;
+import model.HairColour;
+
+
 import org.junit.jupiter.api.Test;
 import java.util.List;
-import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class charactersCsvTest {
@@ -8,7 +14,7 @@ public class charactersCsvTest {
     @Test
     void loadAllCharactersFromCsv(){
 
-        List<Character> characters = CharacterLoader.loadCharacters();
+        List<model.Character> characters = CharacterLoader.loadCharacters();
         assertEquals(24, characters.size());
     }
 
@@ -23,8 +29,8 @@ public class charactersCsvTest {
     @Test
     void loadFirstCharacterFromCsv(){
 
-        List<Character> characters = CharacterLoader.loadCharacters();
-        Character firstCharacter = characters.getFirst();
+        List<model.Character> characters = CharacterLoader.loadCharacters();
+        model.Character firstCharacter = characters.getFirst();
 
         assertEquals("John", firstCharacter.getName());
         assertEquals(HairColour.BROWN, firstCharacter.getHairColour());

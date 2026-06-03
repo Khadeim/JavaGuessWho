@@ -1,10 +1,13 @@
+package model;
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.io.*;
 
 
 public class CharacterLoader {
-    private static final String charactersFile = "/Users/khadeim.rahman/Desktop/JavaGuessWho/JavaGuessWho/src/main/java/characters.csv";
+    private static final String charactersFile = "src/main/java/characters.csv";
 
     public static List<Character> loadCharacters() {
 

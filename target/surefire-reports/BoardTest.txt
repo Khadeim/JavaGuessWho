@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: CharacterTest
+Test set: BoardTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in CharacterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in BoardTest

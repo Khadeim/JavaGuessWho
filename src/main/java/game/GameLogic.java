@@ -1,9 +1,19 @@
+package game;
+
+import model.Character;
+import model.CharacterRandomSelector;
+import model.EyeColour;
+import model.Gender;
+import model.HairColour;
+import questions.QuestionBuilder;
+import questions.Question;
+
 import java.util.*;
 
 public class GameLogic {
 
     private Board board;
-    private Character secretCharacter;
+    private model.Character secretCharacter;
     private QuestionBuilder questionBuilder;
     private Scanner scanner;
     private int attemptsRemaining = 3;
@@ -21,42 +31,61 @@ public class GameLogic {
     }
 
     public void startGame(){
+        System.out.println("~~~~~ For presentation purposes, the secret character is below: ~~~~~");
         System.out.println(secretCharacter);
 
-        System.out.println("~~~~~ Welcome to Guess Who! ~~~~~");
+        System.out.println("\n\n~~~~~ Welcome to Guess Who! ~~~~~");
+
         while (attemptsRemaining > 0){
+            try {
+                System.out.println("~~~~~ There are " + board.remainingCount() + " characters, here are their names: ~~~~~");
+                for (model.Character c : board.getRemainingCharacters()) {
+                    System.out.println(c.getName());
+                }
+                System.out.println("\nPick a question to ask:");
+                System.out.println("1. Hair colour");
+                System.out.println("2. Eye colour");
+                System.out.println("3. Wears glasses");
+                System.out.println("4. Has hat");
+                System.out.println("5. Gender");
+                System.out.println("6. Has facial hair");
+                System.out.println("7. Make guess");
 
-            System.out.println("~~~~~ There are " + board.remainingCount() + " characters, here are their names: ~~~~~");
-            for (Character c : board.getRemainingCharacters()){
-                System.out.println(c.getName());
+                System.out.println("Enter a number 1-7: ");
+
+                while (!scanner.hasNextInt()) {
+                    try {
+                        System.out.println("Invalid input! Enter a number 1-7");
+                        scanner.next();
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Please enter a number between 1 and 7 inclusive");
+                    }
+                }
+
+                int choice = scanner.nextInt();
+
+                if (choice == 7) {
+                    makeGuess();
+                    continue;
+                }
+
+                if (board.remainingCount() == 1) {
+                    System.out.println("You win!");
+                    System.out.println("There is only 1 character left.");
+                    System.out.println("The character was: " + secretCharacter.getName());
+                    System.exit(0);
+                }
+
+                try {
+                    Question question = buildQuestion(choice);
+                    answerMethod(question);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Error: please enter a number within the given range!");
+                }
             }
-            System.out.println("\nPick a question to ask:");
-            System.out.println("1. Hair colour");
-            System.out.println("2. Eye colour");
-            System.out.println("3. Wears glasses");
-            System.out.println("4. Has hat");
-            System.out.println("5. Gender");
-            System.out.println("6. Has facial hair");
-            System.out.println("7. Make guess");
-
-            int choice = scanner.nextInt();
-
-            if (choice == 7){
-                makeGuess();
-                continue;
+            catch (IllegalArgumentException e){
+                System.out.println("Error: please enter a number within 1-7 inclusive");
             }
-
-            if (board.remainingCount() == 1){
-                System.out.println("You win!");
-                System.out.println("There is only 1 character left.");
-                System.out.println("The character was: " + secretCharacter.getName());
-                System.exit(0);
-            }
-
-
-
-            Question question = buildQuestion(choice);
-            answerMethod(question);
         }
         System.out.println("Game over!");
         System.out.println("The character was: " + secretCharacter.getName());

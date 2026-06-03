@@ -1,3 +1,5 @@
+package model;
+
 public enum EyeColour {
     BROWN,
     BLUE,

@@ -1,3 +1,10 @@
+package questions;
+
+import model.EyeColour;
+import model.Gender;
+import model.HairColour;
+
+
 public class QuestionBuilder {
 
     public Question createHairQuestion(HairColour hairColour){

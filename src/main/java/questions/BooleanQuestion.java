@@ -1,4 +1,8 @@
-public class BooleanQuestion implements Question{
+package questions;
+
+import model.Character;
+
+public class BooleanQuestion implements Question {
 
     private String typeOfQuestion;
     private String text;

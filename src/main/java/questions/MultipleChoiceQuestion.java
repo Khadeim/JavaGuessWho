@@ -1,3 +1,7 @@
+package questions;
+
+import model.Character;
+
 public class MultipleChoiceQuestion implements Question {
 
     private String typeOfQuestion;

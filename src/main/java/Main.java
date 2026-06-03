@@ -1,9 +1,13 @@
+import game.GameLogic;
+import model.Character;
+import model.CharacterLoader;
+
+
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        // CREATE OBJECTS
 
         CharacterLoader loader = new CharacterLoader();
 
@@ -15,14 +19,6 @@ public class Main {
 
     }
 }
-
-
-
-
-
-
-
-
 
 
 
